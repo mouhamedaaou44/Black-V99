@@ -5,10 +5,7 @@ module.exports = async function (uriConnect) {
 	const userModel = require("../models/mongodb/user.js");
 	const globalModel = require("../models/mongodb/global.js");
 
-	await mongoose.connect(uriConnect, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	});
+	await mongoose.connect(uriConnect);
 
 	return {
 		threadModel,
