@@ -2,7 +2,7 @@ const { graphQlQueryToJson } = require("graphql-query-to-json");
 /*const ora = require("ora");*/
 const logger = global.loggeryuki;
 
-const databaseType = 'sqlite';
+const databaseType = 'mongodb';
 
 // with add null if not found data
 function fakeGraphql(query, data, obj = {}) {
