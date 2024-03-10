@@ -3,7 +3,6 @@ const chalk = require("chalk");
 const cv = chalk.bold.hex("#FF5733");
 const gradient = require("gradient-string")
 global.BotaNota = [];
-global.game = {};
 const logo = `
 
 ╭━━╮╭╮╱╱╱╱╱╱╭╮
