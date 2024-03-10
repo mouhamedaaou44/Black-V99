@@ -8,7 +8,7 @@ module.exports = {
 
     KJ: ["xo", "ttt"],
 
-		Hide: true, 
+		Hide: false, 
 
 		Time: 5,
 
