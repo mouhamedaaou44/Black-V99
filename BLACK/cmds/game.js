@@ -1,4 +1,3 @@
-global.game = {};
 
 module.exports = {
 
