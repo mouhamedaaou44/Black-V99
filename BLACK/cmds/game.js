@@ -1,4 +1,4 @@
-
+global.game = {};
 
 module.exports = {
 
