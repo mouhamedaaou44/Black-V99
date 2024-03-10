@@ -27,6 +27,11 @@ module.exports = {
             if (mention.length === 0) {
                 message.reply("من فضلك منشن شخصاً ما 🔖");
             } else if (!global.game.hasOwnProperty(event.threadID) || !global.game[event.threadID].on) {
+                let yet = await usersData.get(mention[0]);
+                let yet2 = await usersData.get(event.senderID);
+                if (!yet.gender)
+                { await usersData.create(mention[0]);}
+                else if (!yet2.gender) { await usersData.create(event.senderID);}
                 global.game[event.threadID] = {
                     on: true,
                     board: "🔲🔲🔲\n🔲🔲🔲\n🔲🔲🔲",
@@ -82,13 +87,14 @@ module.exports = {
                                     global.game[event.threadID].board2[b] === global.game[event.threadID].bidd &&
                                     global.game[event.threadID].board2[c] === global.game[event.threadID].bidd) {
                                     const winnerName = global.game[event.threadID].bidd === "❌" ? global.game[event.threadID].player1.name : global.game[event.threadID].player2.name;
-                                    message.send(`${winnerName} فاز باللعبة!`);
+                                    await delay(1000);
+                                    message.send(`${winnerName} فاز باللعبة! 🚀🔖`);
                                     global.game[event.threadID].on = false;
                                     return;
                                 }
                             }
                             if (global.game[event.threadID].counting === 8) {
-                                message.send("تعادل!");
+                                message.send("روحو نامو تعادل 🌚🍻");
                                 global.game[event.threadID].on = false;
                             } else {
                                 global.game[event.threadID].counting++;
