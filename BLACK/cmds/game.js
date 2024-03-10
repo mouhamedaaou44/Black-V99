@@ -1,3 +1,7 @@
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 module.exports = {
     config: {
         name: "اكس_او",
@@ -94,6 +98,7 @@ module.exports = {
                                 }
                             }
                             if (global.game[event.threadID].counting === 8) {
+                                await delay(1000);
                                 message.send("روحو نامو تعادل 🌚🍻");
                                 global.game[event.threadID].on = false;
                             } else {
