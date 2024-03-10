@@ -34,7 +34,7 @@ module.exports = {
             });
         });
     },
-    onReply: async ({ Reply: onReply, Message: message, event }) => {
+    onReply: async ({ Reply: onReply, black: message, event }) => {
         const { type, result, author } = onReply;
          
 const messageBody = event.body.trim().toLowerCase();
