@@ -190,7 +190,7 @@ ${please}
     }
     let index = 0;
     
-        for(let i = 1; i < rr.length; ++i ) {
+        for(let i = 0; i < arr.length / 9; ++i ) {
             let imagesToSend = arr.slice(index, index + 9);
             message.send({
               body: `⋆˚ ┊ تفضل ┊ ⋆˚ ⁭`,
