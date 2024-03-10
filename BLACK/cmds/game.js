@@ -1,12 +1,12 @@
 module.exports = {
     config: {
         name: "اكس_او",
-        aliases: ["xo", "ttt"],
-        hide: false,
-        time: 5,
-        auth: 0,
-        class: "العاب",
-        info: "العب اكس او مع صديقك الحلو"
+        KJ: ["xo", "ttt"],
+        Hide: false,
+        Time: 5,
+        Auth: 0,
+        Class: "العاب",
+        Info: "العب اكس او مع صديقك الحلو"
     },
     onType: async function ({ event, black: message, usersData, args }) {
         const mention = Object.keys(event.mentions);
