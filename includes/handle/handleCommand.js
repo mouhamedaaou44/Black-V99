@@ -70,16 +70,16 @@ module.exports = function ({ api, models, Users, Threads, Currencies, globalData
     var command = commands.get(commandName) || global.client.KJ.get(commandName);
     if (!command) {
       var allCommandName = [];
-      const commandValues = commands["keys"]() || client.KJ["keys"]();
+      const commandValues = commands["keys"]();
       for (const cmd of commandValues) allCommandName.push(cmd);
       const checker = stringSimilarity.findBestMatch(
         commandName,
         allCommandName
       );
       if (checker.bestMatch.rating >= 0.5)
-        command = client.commands.get(checker.bestMatch.target) || client.KJ.get(commandName);
+        command = client.commands.get(checker.bestMatch.target);
       else
-        return
+        return black.reply("هذا الامر مش موجود يا سيد");
     }
     if (commandBanned.get(threadID) || commandBanned.get(senderID)) {
       if (!ADMINBOT.includes(senderID)) {
