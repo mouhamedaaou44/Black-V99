@@ -113,4 +113,9 @@ module.exports = {
     }
 };
 
-String.prototype.replaceAt = function (search,
+String.prototype.replaceAt = function (search, replace, from) {
+    if (this.length > from) {
+        return this.slice(0, from) + this.slice(from).replace(search, replace);
+    }
+    return this;
+};
