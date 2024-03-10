@@ -29,7 +29,7 @@ logger.log([
     color: "white",
   },
 ]);
-
+global.game = {};
 global.client = new Object({
   commands: new Map(),
   events: new Map(),
