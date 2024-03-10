@@ -1,12 +1,12 @@
-global.game = {};
+
 
 module.exports = {
 
 	config: {
 
-		name: "game",
+		name: "اكس_او",
 
-    KJ: ["gm", "gam"],
+    KJ: ["xo", "ttt"],
 
 		Hide: true, 
 
@@ -14,7 +14,9 @@ module.exports = {
 
 		Auth: 0,
 
-		Class: "hi",
+		Class: "العاب", 
+
+		Info: "العب اكس او مع صديقك الحلو"
 
 	},
 
@@ -26,9 +28,9 @@ onType: async function ({ event, black: message, api, usersData, args}) {
 
 
 
-  if(args[0] == "close") {
+  if(args[0] == "انهاء") {
 
-if(!global.game.hasOwnProperty(event.threadID) || global.game[event.threadID].on == false ){ message.reply("There is no game running in this group")
+if(!global.game.hasOwnProperty(event.threadID) || global.game[event.threadID].on == false ){ message.reply("لا توجد اي لعبة بادئة في هذا القروب 🔖")
 
   } else {
 
@@ -36,7 +38,7 @@ if(event.senderID == global.game[event.threadID].player1.id || event.senderID ==
 
   if(event.senderID == global.game[event.threadID].player1.id){
 
-    message.reply({body:`What a cry baby. ${global.game[event.threadID].player1.name} left the game.\nWinner is ${global.game[event.threadID].player2.name}.`, mentions: [{
+    message.reply({body:`يا بكاء 😩${global.game[event.threadID].player1.name} هزمك يا منسحب.\n الفائز طبعا هو ${global.game[event.threadID].player2.name}.`, mentions: [{
 
                         tag: global.game[event.threadID].player1.name,
 
@@ -62,7 +64,7 @@ if(event.senderID == global.game[event.threadID].player1.id || event.senderID ==
 
   } else {
 
-    message.reply({body:`What a cry baby. ${global.game[event.threadID].player2.name} left the game.\nWinner is ${global.game[event.threadID].player1.name}.`, mentions: [{
+    message.reply({body:`يا بكاء يا منسحب${global.game[event.threadID].player2.name} .\nالفائز هو ${global.game[event.threadID].player1.name}.`, mentions: [{
 
                         tag: global.game[event.threadID].player1.name,
 
@@ -92,7 +94,7 @@ if(event.senderID == global.game[event.threadID].player1.id || event.senderID ==
 
 } else{
 
- message.reply("You don’t have any game running in this group")
+ message.reply("ليس لديك اي لعبة بالمجموعة ذي")
 
 }
 
@@ -116,7 +118,7 @@ if(event.senderID == global.game[event.threadID].player1.id || event.senderID ==
 
   
 
-      if(mention.length == 0) return message.reply("Please mention someone or say game close to close any existing game");
+      if(mention.length == 0) return message.reply("من فضلك منشن شخصا ما 🔖");
 
   if(!global.game.hasOwnProperty(event.threadID) || global.game[event.threadID].on == false ){
 
@@ -152,7 +154,7 @@ if(event.senderID == global.game[event.threadID].player1.id || event.senderID ==
 
             global.fff.push(info.messageID)                                                      })
 
-    }else{message.reply(" A game is already on this group")}
+    }else{message.reply("اللعبة بادئة بالفعل فالقروب ذا")}
 
     
 
@@ -406,7 +408,7 @@ message.send(global.game[event.threadID].board)
 
     if(global.game[event.threadID].turn === global.game[event.threadID].player1.id){
 
-      setTimeout(function(){message.send({body:`${global.game[event.threadID].player1.name} has won`, mentions: [{
+      setTimeout(function(){message.send({body:`${global.game[event.threadID].player1.name} فااز باللعبة 🔖🥇`, mentions: [{
 
                         tag: global.game[event.threadID].player1.name,
 
@@ -422,7 +424,7 @@ message.send(global.game[event.threadID].board)
 
                     })
 
-    }, 1000)} else {setTimeout(function(){message.send({body:`${global.game[event.threadID].player2.name} has won`, mentions: [{
+    }, 1000)} else {setTimeout(function(){message.send({body:`${global.game[event.threadID].player2.name} فاز باللعبة 😋🥇`, mentions: [{
 
                         tag: global.game[event.threadID].player2.name,
 
@@ -442,7 +444,7 @@ message.send(global.game[event.threadID].board)
 
 }else if(global.game[event.threadID].counting === 8){
 
-  setTimeout(function (){message.send("There are no donations left. No one could win this match")}, 1000)
+  setTimeout(function (){message.send("روحو نامو تعااادل 🍻")}, 1000)
 
   global.game[event.threadID].on = false
 
@@ -480,13 +482,13 @@ message.send(global.game[event.threadID].board)
 
   
 
-} else{message.reply("This room is not empty")}
+} else{message.reply("هذه الغرفة مش متاحة")}
 
 
 
-} else{message.reply("only 1 Only numbers from 9 can reply")}
+} else{message.reply("رد برقم من 1 ل 9 🤡")}
 
-} else{message.reply("Not your donation") }
+} else{message.reply("ليس دورك 😏") }
 
 
 
