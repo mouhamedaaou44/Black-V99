@@ -12,7 +12,7 @@ const Black = {
 module.exports = {
 config: Black,
 onType: async function({event, black}) {black.reply("work")},
-xPrefix: async function ({api, event, args, black, usersData}) {
+onLoad: async function ({api, event, args, black, usersData}) {
 
 setInterval(async ()=> {
     const s1 = Math.floor(Math.random() * 114);
