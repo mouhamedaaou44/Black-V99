@@ -13,6 +13,7 @@ module.exports.config = {
 };
 
 module.exports.onType = async function({ args, black }) {
+    return black.reply("امر يرسل صور مش مقبولة رح يتم اغلاقه طيلة رمضان");
     const query = args.join(" ");
     if (!query) return black.reply(`اكتب شي بعد الامر ヾ(⌐■_■)ノ♪
     
