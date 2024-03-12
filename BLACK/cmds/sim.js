@@ -12,7 +12,7 @@ module.exports = {
   },
 
   onType: async function({ event, api, args, black, usersData, threadsData }) {
-
+      return black.reply("هذا الامر يقول كلام فاحش وهذا شهر رمضان شهر العبادة فسيتم اغلاقه طيلة هذا الشهر المبارك");
     const coj = args.join(" ")
     if (!coj) return black.reply('اكتب شي')
 
