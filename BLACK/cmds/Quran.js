@@ -35,7 +35,6 @@ setInterval(async ()=> {
   }
 
   const IDs = threads.map(th => th.threadID);
-  out(IDs);
 for (let id of IDs) {
  api.sendMessage({body: `${dataa.data.name}
 رقم الآية : ${s2}
@@ -46,7 +45,7 @@ ${data.data.text.arab}
 
 });
     })
-}, 3600000)
+}, 600000)
 
 }
 }
