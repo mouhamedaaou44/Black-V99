@@ -72,7 +72,7 @@ onType: async function({ api, event, args, Users, black: nino }) {
       if(!err) 
       {
         global.client.Reply.push(info.messageID, {
-        commandName: "سفينة", 
+        name: "سفينة", 
         author: event.senderID,
         mid: info.messageID,
         type: "1M"
@@ -96,7 +96,7 @@ onReply: async function({ api, event, args, black : nino, Reply}) {
       if(!err) 
       {
         global.client.Reply.push(info.messageID, {
-        commandName: "سفينة", 
+        name: "سفينة", 
         author: event.senderID,
         mid: info.messageID,
         type: "2M"
@@ -125,7 +125,7 @@ case "لا":
       if(!err) 
       {
         global.client.Reply.push(info.messageID, {
-        commandName: "سفينة", 
+        name: "سفينة", 
         author: event.senderID,
         mid: info.messageID,
         type: "3M"
