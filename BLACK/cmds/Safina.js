@@ -47,6 +47,7 @@ let picQ = [
 module.exports = {
   config: {
   name: "سفينة",
+    Hide: false,
   Auth: 0,
   Owner: `القصة من طرف ايوب
   
