@@ -139,7 +139,7 @@ module.exports = function({ api, models, globalData, usersData, threadsData }) {
    
     global.BlackUid = api.getCurrentUserID();
 
-const black = require("../utils/br9v5")(api , event);
+const black = require("../utils/Black")(api , event);
 		black.str = async (T, U) => {
       let F;
       if (!U) {
