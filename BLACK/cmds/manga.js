@@ -1,36 +1,46 @@
 const axios = require("axios");
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+
+
 
 module.exports = {
-    config: {
+    Caera: {
         name: "مانجا",
-        KJ: ["عع", "ممم"],
-        Owner: "1.0.0",
-        Auth: 0,
-        Owner: "عمار الكافي",
+        Aliases: ["مانهوا", "مانها"],
+        version: "1.0.0",
+        author: "عبدالرحمن محمد",
+        Validity: 0,
+        CDown: 0,
+        description: "مشاهده مانجا او مانهوا",
         Class: "ثريدز",
-        Time: 5,
-        Hide: false,
     },
-    onType: async ({ black: message }) => {
-        const msg = `🔥 |  مكتــبة الانمي 🏫📚
+    onUse: async ({ Message: message, event }) => {
+        const msg = `🔥 |  مكتــبة المانجا 🏫📚
 
- ←› يرجى الرد على هذه الرسالة بكلمات البحث لاسم الانمي المراد البحث عنه . 
+ ←› يرجى الرد على هذه الرسالة بكلمات البحث لاسم المانجا او المانهوا المراد البحث عنه . 
 
 ⌯︙يفضل استخدام الحروف الانجليزية .
-⌯︙يمكنك البحث عن انمي مسلسل/فلم .`;
+⌯︙يمكنك البحث عن مانهوا مانجا مانها .`;
 
         message.reply(msg, (err, info) => {
-            global.client.Reply.push(info.messageID, {
-                name: "المكتبة",
+            global.Caera.onReply.set(info.messageID, {
+                name: "مانجا",
                 messageID: info.messageID,
-                type: "letsSearch",
+                author: event.senderID,
+                type: "letsSearch"
             });
         });
     },
-    onReply: async ({ Reply, black: message, event }) => {
-        const { type, result } = Reply;
-        const messageBody = event.body.trim().toLowerCase();
+    onReply: async ({ onReply, Message: message, event }) => {
+        const { type, result, author } = onReply;
+         if( author != event.senderID ) return;
+const messageBody = event.body.trim().toLowerCase();
         const body = parseInt(messageBody);
+        
         if (type === "letsSearch") {
             const keywords = messageBody;
             message.react("🔎");
@@ -126,20 +136,12 @@ ${please}
 • ┉ • ┉ • ┉ • ┉ • ┉ •
 ←› لقرائة المانجا : الرجاء الرد على الرساله بكلمة "قراءة"
                 `;
-                const generatedImageUrl = mangaData.manga_cover_image_url;
-
-        const { data: imageBuffer } = await axios.get(generatedImageUrl, { responseType: "arraybuffer" });
-
-        const temporaryImagePath = `temp_${Date.now()}.jpg`;
-        fs.writeFileSync(temporaryImagePath, Buffer.from(imageBuffer, 'binary'));
-
-        const attachmentData = fs.createReadStream(temporaryImagePath);
-                api.sendMessage(
+                const stream = await global.Mods.imgd(mangaData.manga_cover_image_url);
+                message.reply(
                     {
-                        body:  msg,
-attachment:
-  attachmentData
-}, event.threadID);
+                        body: msg,
+                        attachment: stream,
+                    },
                     (err, info) => {
                         const downloadLinks = "";
                         let downloadMsg = "";
