@@ -12,8 +12,8 @@ module.exports.config = {
     Time: 0,
 };
 
-module.exports.onType = async function({ args, black }) 
-
+module.exports.onType = async function({ args, black }) {
+    return
     const query = args.join(" ");
     if (!query) return black.reply(`اكتب شي بعد الامر ヾ(⌐■_■)ノ♪
     
