@@ -8,39 +8,36 @@ function delay(ms) {
 
 
 module.exports = {
-    Caera: {
-        name: "مانجا",
-        Aliases: ["مانهوا", "مانها"],
-        version: "1.0.0",
-        author: "عبدالرحمن محمد",
-        Validity: 0,
-        CDown: 0,
-        description: "مشاهده مانجا او مانهوا",
+    config: {
+        name: "المكتبة",
+        KJ: ["library", "مكتبه"],
+        Owner: "1.0.0",
+        Auth: 0,
+        Owner: "عمار الكافي",
         Class: "ثريدز",
+        Time: 5,
+        Hide: false,
     },
-    onUse: async ({ Message: message, event }) => {
-        const msg = `🔥 |  مكتــبة المانجا 🏫📚
+    onType: async ({ black: message }) => {
+        const msg = `🔥 |  مكتــبة الانمي 🏫📚
 
- ←› يرجى الرد على هذه الرسالة بكلمات البحث لاسم المانجا او المانهوا المراد البحث عنه . 
+ ←› يرجى الرد على هذه الرسالة بكلمات البحث لاسم الانمي المراد البحث عنه . 
 
 ⌯︙يفضل استخدام الحروف الانجليزية .
-⌯︙يمكنك البحث عن مانهوا مانجا مانها .`;
+⌯︙يمكنك البحث عن انمي مسلسل/فلم .`;
 
         message.reply(msg, (err, info) => {
-            global.Caera.onReply.set(info.messageID, {
-                name: "مانجا",
+            global.client.Reply.push(info.messageID, {
+                name: "المكتبة",
                 messageID: info.messageID,
-                author: event.senderID,
-                type: "letsSearch"
+                type: "letsSearch",
             });
         });
     },
-    onReply: async ({ onReply, Message: message, event }) => {
-        const { type, result, author } = onReply;
-         if( author != event.senderID ) return;
-const messageBody = event.body.trim().toLowerCase();
+    onReply: async ({ Reply, black: message, event }) => {
+        const { type, result } = Reply;
+        const messageBody = event.body.trim().toLowerCase();
         const body = parseInt(messageBody);
-        
         if (type === "letsSearch") {
             const keywords = messageBody;
             message.react("🔎");
@@ -77,7 +74,7 @@ ${formattedMessage}
 ${please}
 `,
                     (err, info) => {
-                        global.Caera.onReply.set(info.messageID, {
+                        global.client.Reply.push(info.messageID, {
                             name: "مانجا",
                             messageID: info.messageID,
                             resultMessageID: info.messageID,
