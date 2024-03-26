@@ -129,11 +129,12 @@ ${please}
 • ┉ • ┉ • ┉ • ┉ • ┉ •
 ←› لقرائة المانجا : الرجاء الرد على الرساله بكلمة "قراءة"
                 `;
-                const stream = await global.Mods.imgd(mangaData.manga_cover_image_url);
+                  const url = mangaData.manga_cover_image_url;
+  const Stream = await funcs.str(url);
                 message.reply(
                     {
                         body: msg,
-                        attachment: stream,
+                        attachment: Stream,
                     },
                     (err, info) => {
                         const downloadLinks = "";
