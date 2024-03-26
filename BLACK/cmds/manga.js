@@ -5,8 +5,8 @@ function delay(ms) {
 
 module.exports = {
     config: {
-        name: "المكتبة",
-        KJ: ["library", "مكتبه"],
+        name: "مانجا",
+        KJ: ["نوو", "ليب"],
         Owner: "1.0.0",
         Auth: 0,
         Owner: "عمار الكافي",
