@@ -1,12 +1,8 @@
 const axios = require("axios");
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
-
-
-
+};
+
 module.exports = {
     config: {
         name: "المكتبة",
@@ -143,7 +139,7 @@ ${please}
                         const downloadLinks = "";
                         let downloadMsg = "";
                         
-                        global.Caera.onReply.set(info.messageID, {
+                        global.client.Reply.push(info.messageID, {
                             name: "مانجا",
                             messageID: info.messageID,
                             resultMessageID: info.messageID,
@@ -164,7 +160,7 @@ ${please}
             const resData = res.data.data[0];
             let msg = `⋆˚ ⬷ تحتوي هذه المانغا/مانهوا على ${resData.chapter_number} رد برقم الفصل لبدك تقرأه ⋆˚ ⬷`;
             message.reply(msg, (err, info) => {
-                global.Caera.onReply.set(info.messageID, {
+                global.client.Reply.push(info.messageID, {
                     name: "مانجا",
                     messageID: info.messageID,
                     resultMessageID: info.messageID,
