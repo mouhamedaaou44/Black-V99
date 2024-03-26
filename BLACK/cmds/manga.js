@@ -135,12 +135,20 @@ ${please}
 • ┉ • ┉ • ┉ • ┉ • ┉ •
 ←› لقرائة المانجا : الرجاء الرد على الرساله بكلمة "قراءة"
                 `;
-                const stream = await global.Mods.imgd(mangaData.manga_cover_image_url);
-                message.reply(
+                const generatedImageUrl = mangaData.manga_cover_image_url;
+
+        const { data: imageBuffer } = await axios.get(generatedImageUrl, { responseType: "arraybuffer" });
+
+        const temporaryImagePath = `temp_${Date.now()}.jpg`;
+        fs.writeFileSync(temporaryImagePath, Buffer.from(imageBuffer, 'binary'));
+
+        const attachmentData = fs.createReadStream(temporaryImagePath);
+                api.sendMessage(
                     {
-                        body: msg,
-                        attachment: stream,
-                    },
+                        body:  msg,
+attachment:
+  attachmentData
+}, event.threadID);
                     (err, info) => {
                         const downloadLinks = "";
                         let downloadMsg = "";
