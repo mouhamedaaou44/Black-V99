@@ -15,7 +15,7 @@ module.exports = {
         Hide: false,
     },
     onType: async ({ black: message }) => {
-        const msg = `🔥 |  مكتــبة الانمي 🏫📚
+        const msg = `🔥 |  مكتــبة المانجا 🏫📚
 
  ←› يرجى الرد على هذه الرسالة بكلمات البحث لاسم الانمي المراد البحث عنه . 
 
@@ -24,7 +24,7 @@ module.exports = {
 
         message.reply(msg, (err, info) => {
             global.client.Reply.push(info.messageID, {
-                name: "المكتبة",
+                name: "مانجا",
                 messageID: info.messageID,
                 type: "letsSearch",
             });
