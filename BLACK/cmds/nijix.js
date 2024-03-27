@@ -48,7 +48,7 @@ const pompt = await global.funcs.trgm(prompt, "en");
 
             
 
-            let apiUrl = `https://niji-api-3e67175a0232.herokuapp.com/generate?prompt=${encodeURIComponent(pompt)}&aspectRatio=${aspectRatio}`;
+            let apiUrl = `https://project-niji.onrender.com/api/generate?prompt=${encodeURIComponent(prompt)}.&aspectRatio=${aspectRatio}&apikey=rehat&key=siam`;
             if (imageUrl) {
                 apiUrl += `&imageUrl=${imageUrl}`;
             }
