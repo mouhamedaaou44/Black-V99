@@ -12,7 +12,7 @@ module.exports = {
     Class: "اسلامي",
   },
 
-onType = async function({ api, event, args }) => {
+module.exports.onType = async function({ api, event, args, black }) => {
   let pageNumber = parseInt(args[0]);
 
   // Validate input
