@@ -2,16 +2,15 @@ const axios = require('axios');
 const fs = require('fs');
 const request = require('request');
 
-module.exports.config = {
-  name: "صفحة",
-  version: "1.0.0",
-  hasPermission: 0,
-  credits: "علي فاضل",
-  description: "عرض صفحة من القرآن الكريم بصورة",
-  commandCategory: "معلومات",
-  usages: "صفحة [رقم الصفحة]",
-  cooldowns: 5
-};
+module.exports = {
+  config: {
+    name: "صفحة",
+    Owner: "louFi2",
+    Auth: 0,
+    Time: 0,
+    Info: "صفحة من القرآن 🥹",
+    Class: "اسلامي",
+  },
 
 module.exports.run = async ({ api, event, args }) => {
   let pageNumber = parseInt(args[0]);
