@@ -12,12 +12,12 @@ module.exports = {
     Class: "اسلامي",
   },
 
-onType = async ({ api, event, args }) => {
+onType = async function({ api, event, args }) => {
   let pageNumber = parseInt(args[0]);
 
   // Validate input
   if (isNaN(pageNumber) || pageNumber <= 0) {
-    return api.sendMessage('يرجى إدخال رقم صفحة صحيح', event.threadID, event.messageID);
+    return         black.reply('يرجى إدخال رقم صفحة صحيح');
   }
 
   // Format page number
@@ -27,19 +27,19 @@ onType = async ({ api, event, args }) => {
 
   try {
     let callback = function () {
-      return api.sendMessage(
+      return         black.reply(
         {
           body: `
           القرآن الكريم برواية شعبة
           الصفحة التي فيها السند: ${pageNumber}
           `,
           attachment: fs.createReadStream(__dirname + `/cache/quran_page_${formattedPageNumber}.jpg`)
-        }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/quran_page_${formattedPageNumber}.jpg`), event.messageID);
+        },() => fs.unlinkSync(__dirname + `/cache/quran_page_${formattedPageNumber}.jpg`), );
     };
 
     request(url).pipe(fs.createWriteStream(__dirname + `/cache/quran_page_${formattedPageNumber}.jpg`)).on("close", callback);
   } catch (err) {
     console.error(err);
-    api.sendMessage('حدث خطأ أثناء جلب صفحة من القرآن الكريم.', event.threadID, event.messageID);
+            black.reply('حدث خطأ أثناء جلب صفحة من القرآن الكريم.');
   }
 };
