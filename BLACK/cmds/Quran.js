@@ -12,12 +12,12 @@ module.exports = {
     Class: "اسلامي",
   },
 
-module.exports.onType = async function({ api, event, args, black }) => {
+    onType: async ({ black: message })  => {
   let pageNumber = parseInt(args[0]);
 
   // Validate input
   if (isNaN(pageNumber) || pageNumber <= 0) {
-    return         black.reply('يرجى إدخال رقم صفحة صحيح');
+    return         message.reply('يرجى إدخال رقم صفحة صحيح');
   }
 
   // Format page number
