@@ -33,7 +33,7 @@ module.exports.onType = async function({ api, event, args, black }) => {
           القرآن الكريم برواية شعبة
           الصفحة التي فيها السند: ${pageNumber}
           `,
-          attachment: fs.createReadStream(__dirname + `/cache/quran_page_${formattedPageNumber}.jpg`)
+          attachment: await funcs.str(__dirname + `/cache/quran_page_${formattedPageNumber}.jpg`)
         },() => fs.unlinkSync(__dirname + `/cache/quran_page_${formattedPageNumber}.jpg`), );
     };
 
