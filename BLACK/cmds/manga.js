@@ -6,21 +6,21 @@ function delay(ms) {
 module.exports = {
     config: {
         name: "مانجا",
-        KJ: ["نوو", "ليب"],
+        KJ: ["manga", "مانهو"],
         Owner: "1.0.0",
         Auth: 0,
-        Owner: "عمار الكافي",
+        Owner: "louFi2",
         Class: "ثريدز",
         Time: 5,
         Hide: false,
     },
     onType: async ({ black: message }) => {
-        const msg = `🔥 |  مكتــبة المانجا 🏫📚
+        const msg = `🔥 |  /مكتــبة مانجا 🏫📚
 
  ←› يرجى الرد على هذه الرسالة بكلمات البحث لاسم الانمي المراد البحث عنه . 
 
 ⌯︙يفضل استخدام الحروف الانجليزية .
-⌯︙يمكنك البحث عن انمي مسلسل/فلم .`;
+⌯︙يمكنك البحث عن انمي مانجا/مانهو .`;
 
         message.reply(msg, (err, info) => {
             global.client.Reply.push(info.messageID, {
@@ -183,7 +183,7 @@ if (type == "ReadChapt") {
     let rr = res.data.data;
     let arr = []
     for (let i = 1; i < rr.length; ++i) {
-        arr.push(await global.Mods.imgd(rr[i].page_image_url))
+        arr.push(await global.funcs.str(rr[i].page_image_url))
     }
     let index = 0;
 
